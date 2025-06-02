@@ -4,12 +4,12 @@ var route = express.Router()
 
 var UsuarioDb = require("../model/usuario") 
 
-route.get("/usuario_rotas", async(req, res)=>{
+route.get("/usuario", async(req, res)=>{
     var usuario = await UsuarioDb.find()
     return res.send(usuario)
 })
 
-route.get("/usuario_rotas/:nome", async (req,res) => {
+route.get("/usuario/:nome", async (req,res) => {
     const usuario = req.params.nome || ""
 
     if(usuario){
