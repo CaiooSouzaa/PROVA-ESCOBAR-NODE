@@ -3,7 +3,11 @@ const express = require("express")
 
 var app = express()
 
-app.listen(3000, function(){
+//require("./routes/usuario_rotas")(app)
+//require("./routes/produtos")(app)
+//require("./routes/vendas")(app)
+
+app.listen(3001, function(){
     console.log('Servidor ativo')
 })
 
@@ -13,7 +17,8 @@ app.get('/', function(req, res){
 })
 
 app.post('/api/login_usuario', function(req, res){
-
+    var criacao = "Sucesso"
+    return res.send(criacao)
 })
 
 app.post('/api/cadastro_usuario', function(res,req){

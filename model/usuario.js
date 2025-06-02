@@ -30,5 +30,5 @@ const UserTable = new Schema(
     }
 )
 
-const Usuario = mongoose.model('login_usuario', login_usuarioTable)
+const Usuario = mongoose.model('login_usuario', UserTable)
 module.exports = Usuario
