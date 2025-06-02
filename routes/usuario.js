@@ -4,11 +4,13 @@ var route = express.Router()
 
 var UsuarioDb = require("../model/usuario")
 
+//BUSCA DE TODOS OS USUARIOS
 route.get("/usuario", async (req, res) => {
     var usuario = await UsuarioDb.find()
     return res.send(usuario)
 })
 
+//BUSCA PERSONALIZADA PELO USUARIO PASSANDO O NOME VIA GET
 route.get("/usuario/:nome", async (req, res) => {
     const usuario = req.params.nome || ""
 
@@ -22,6 +24,7 @@ route.get("/usuario/:nome", async (req, res) => {
     return res.send(usuarios)
 })
 
+//CADASTRO DO USUARIO VIA POST
 route.post("/registrar", async (req, res) => {
     var { nome, email, senha, confirmar_senha } = req.body
 
@@ -52,6 +55,32 @@ route.post("/registrar", async (req, res) => {
     }
 })
 
+//ACESSO A PLATAFORMA VIA LOGIN PASSANDO OS DADOS POR POST
 
+route.post("/login", async (req, res) => {
+    var { email, senha } = req.body
+
+    var msgErro = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
+
+    if (email === undefined || email === "") {
+        return res.send(msgErro)
+    }
+
+    if (senha === undefined || senha === "") {
+        return res.send(msgErro)
+    }
+
+    var retorno = await UsuarioDb.findOne({ email })
+
+    if (retorno === null) {
+        return res.send({ error: "Usuario e/ou senha invalida" })
+    }
+
+    if (retorno.senha != senha) {
+        return res.send({ error: "Usuario e/ou senha invalida" })
+    }
+
+    return res.send({token: "Ok"})
+})
 
 module.exports = app => app.use("/api", route)
