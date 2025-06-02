@@ -1,27 +1,27 @@
 const mongoose = require("./database")
 
-const {Schema} = mongoose
+const { Schema } = mongoose
 
 const UserTable = new Schema(
     {
-        nome:{
-            type:String,
+        nome: {
+            type: String,
             require: true,
             unique: true
         },
-        email:{
+        email: {
             type: String,
-            require:true
-        },
-        senha:{
-            type:String,
             require: true
         },
-        data_criacao:{
+        senha: {
+            type: String,
+            require: true
+        },
+        data_criacao: {
             type: Date,
             default: Date.now
         },
-        nivel:[
+        nivel: [
             {
                 tipo: Number,
                 observacao: String

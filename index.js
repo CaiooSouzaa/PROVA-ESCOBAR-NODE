@@ -3,7 +3,7 @@ const express = require("express")
 
 var app = express()
 
-//require("./routes/usuario_rotas")(app)
+require("./routes/usuario")(app)
 //require("./routes/produtos")(app)
 //require("./routes/vendas")(app)
 
