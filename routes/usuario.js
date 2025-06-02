@@ -79,12 +79,12 @@ route.post("/login", async (req, res) => {
         return res.send({ error: "Usuario e/ou senha invalida" })
     }
 
-    return res.send({token: "Ok"})
+    return res.send({ token: "Ok" })
 })
 
 //ATUALIZAR CADASTRO DE USUARIO
-route.put("/atualizar_cadastro", async(req, res) =>{
-    var{nome, email, senha, confirmar_senha} = req.body
+route.put("/atualizar_cadastro", async (req, res) => {
+    var { nome, email, senha, confirmar_senha } = req.body
 
     var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
 
@@ -100,14 +100,31 @@ route.put("/atualizar_cadastro", async(req, res) =>{
         return res.send(msg)
     }
 
-    var retorno = await UsuarioDb.findOneAndUpdate({email}, {nome, senha}, {new: true})
+    var retorno = await UsuarioDb.findOneAndUpdate({ email }, { nome, senha }, { new: true })
 
-    if(retorno === null){
+    if (retorno === null) {
         var msg = "Algo deu errado, confirmar suas credenciais corretamente"
         return res.send(msg)
     }
 
-    return res.send({message: "Dados atualizados"})
+    return res.send({ message: "Dados atualizados" })
+})
+
+//DELETAR USUARIO
+route.delete("/deletar", async (req, res) => {
+    var { _id } = req.body
+
+    if (_id == undefined || _id == "") {
+        return res.send({ error: "Id do usuario não encontrada" })
+    }
+
+    var retorno = await UsuarioDb.deleteOne({ _id})
+
+    if (retorno == null) {
+        return res.send({ error: "Erro ao excluir" })
+    }
+
+    return res.send({ message: "usuario removido com sucesso" })
 })
 
 module.exports = app => app.use("/api", route)
