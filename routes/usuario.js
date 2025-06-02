@@ -83,7 +83,7 @@ route.post("/login", async (req, res) => {
 })
 
 //ATUALIZAR CADASTRO DE USUARIO
-route.put("atualizar_cadastro", async(req, res) =>{
+route.put("/atualizar_cadastro", async(req, res) =>{
     var{nome, email, senha, confirmar_senha} = req.body
 
     var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
@@ -96,23 +96,16 @@ route.put("atualizar_cadastro", async(req, res) =>{
         return res.send(msg)
     }
 
-    if (senha === undefined || senha === "") {
+    if (senha !== confirmar_senha) {
         return res.send(msg)
     }
 
-    if (confirmar_senha === undefined || confirmar_senha === "") {
-        return res.send(msg)
-    }
-
-    var retorno = await UsuarioDb.findOne({email})
+    var retorno = await UsuarioDb.findOneAndUpdate({email}, {nome, senha}, {new: true})
 
     if(retorno === null){
         var msg = "Algo deu errado, confirmar suas credenciais corretamente"
         return res.send(msg)
     }
-
-    retorno.senha = senha
-    retorno.save()
 
     return res.send({message: "Dados atualizados"})
 })
