@@ -2,24 +2,54 @@ const express = require('express')
 
 var route = express.Router()
 
-var UsuarioDb = require("../model/usuario") 
+var UsuarioDb = require("../model/usuario")
 
-route.get("/usuario", async(req, res)=>{
+route.get("/usuario", async (req, res) => {
     var usuario = await UsuarioDb.find()
     return res.send(usuario)
 })
 
-route.get("/usuario/:nome", async (req,res) => {
+route.get("/usuario/:nome", async (req, res) => {
     const usuario = req.params.nome || ""
 
-    if(usuario){
-        var usuarios = await UsuarioDb.find({nome:{$regex: usuario, $options: "i"}})
-    }else{
+    if (usuario) {
+        var usuarios = await UsuarioDb.find({ nome: { $regex: usuario, $options: "i" } })
+    } else {
         var user = req.params.nome
         console.log(user)
     }
 
     return res.send(usuarios)
+})
+
+route.post("/registrar", async (req, res) => {
+    var { nome, email, senha, confirmar_senha } = req.body
+
+    var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
+
+    if (nome === undefined || nome === "") {
+        return res.send(msg)
+    }
+
+    if (email === undefined || email === "") {
+        return res.send(msg)
+    }
+
+    if (senha === undefined || senha === "") {
+        return res.send(msg)
+    }
+
+    if (confirmar_senha === undefined || confirmar_senha === "") {
+        return res.send(msg)
+    }
+
+    var retorno = await UsuarioDb.insertOne({ nome, email, senha })
+
+    if (retorno != undefined || retorno != null) {
+        return res.send("Cadastro efetuado com sucesso✅")
+    } else {
+        return res.send("Erro ao cadastrar")
+    }
 })
 
 

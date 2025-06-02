@@ -17,16 +17,14 @@ const UserTable = new Schema(
             type: String,
             require: true
         },
+        confirmar_senha: {
+            type: String,
+            require: true
+        },
         data_criacao: {
             type: Date,
             default: Date.now
-        },
-        nivel: [
-            {
-                tipo: Number,
-                observacao: String
-            }
-        ]
+        }
     }
 )
 
