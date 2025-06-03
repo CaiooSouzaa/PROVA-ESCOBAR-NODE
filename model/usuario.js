@@ -17,10 +17,6 @@ const UserTable = new Schema(
             type: String,
             required: true
         },
-        confirmar_senha: {
-            type: String,
-            required: true
-        },
         data_criacao: {
             type: Date,
             default: Date.now

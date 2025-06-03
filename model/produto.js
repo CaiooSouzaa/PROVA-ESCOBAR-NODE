@@ -24,4 +24,4 @@ const ProdutoTable = new Schema(
 )
 
 const Produto = mongoose.model('cadastro_produto', ProdutoTable)
-module.exports(Produto)
+module.exports = Produto

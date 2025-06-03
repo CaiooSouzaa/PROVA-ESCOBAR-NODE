@@ -1,16 +1,24 @@
 const express = require('express')
+const route = express.Router()
 
-var route = express.Router()
+const UsuarioController = require("../controller/usuarioController")
 
-var UsuarioDb = require("../model/usuario")
+route.get("/usuario", UsuarioController.listatarTodos)
+route.get("/usuario/:nome", UsuarioController.buscarPeloNome)
+route.post("/registrar", UsuarioController.registrar)
+route.post("/login", UsuarioController.login)
+route.put("/atualizar_cadastro", UsuarioController.atualizarCadastro)
+route.delete("/deletar", UsuarioController.deletar)
 
-//BUSCA DE TODOS OS USUARIOS
+
+/*
+BUSCA DE TODOS OS USUARIOS
 route.get("/usuario", async (req, res) => {
     var usuario = await UsuarioDb.find()
     return res.send(usuario)
 })
 
-//BUSCA PERSONALIZADA PELO USUARIO PASSANDO O NOME VIA GET
+BUSCA PERSONALIZADA PELO USUARIO PASSANDO O NOME VIA GET
 route.get("/usuario/:nome", async (req, res) => {
     const usuario = req.params.nome || ""
 
@@ -24,7 +32,7 @@ route.get("/usuario/:nome", async (req, res) => {
     return res.send(usuarios)
 })
 
-//CADASTRO DO USUARIO VIA POST
+CADASTRO DO USUARIO VIA POST
 route.post("/registrar", async (req, res) => {
     var { nome, email, senha, confirmar_senha } = req.body
 
@@ -55,7 +63,7 @@ route.post("/registrar", async (req, res) => {
     }
 })
 
-//ACESSO A PLATAFORMA VIA LOGIN PASSANDO OS DADOS POR POST
+ACESSO A PLATAFORMA VIA LOGIN PASSANDO OS DADOS POR POST
 route.post("/login", async (req, res) => {
     var { email, senha } = req.body
 
@@ -82,7 +90,7 @@ route.post("/login", async (req, res) => {
     return res.send({ token: "Ok" })
 })
 
-//ATUALIZAR CADASTRO DE USUARIO
+ATUALIZAR CADASTRO DE USUARIO
 route.put("/atualizar_cadastro", async (req, res) => {
     var { nome, email, senha, confirmar_senha } = req.body
 
@@ -110,7 +118,7 @@ route.put("/atualizar_cadastro", async (req, res) => {
     return res.send({ message: "Dados atualizados" })
 })
 
-//DELETAR USUARIO
+DELETAR USUARIO
 route.delete("/deletar", async (req, res) => {
     var { _id } = req.body
 
@@ -118,7 +126,7 @@ route.delete("/deletar", async (req, res) => {
         return res.send({ error: "Id do usuario não encontrada" })
     }
 
-    var retorno = await UsuarioDb.deleteOne({ _id})
+    var retorno = await UsuarioDb.deleteOne({ _id })
 
     if (retorno == null) {
         return res.send({ error: "Erro ao excluir" })
@@ -126,5 +134,6 @@ route.delete("/deletar", async (req, res) => {
 
     return res.send({ message: "usuario removido com sucesso" })
 })
+    */
 
 module.exports = app => app.use("/api", route)

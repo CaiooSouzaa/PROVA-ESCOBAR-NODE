@@ -6,7 +6,7 @@ var app = express()
 app.use(express.json())
 
 require("./routes/usuario")(app)
-//require("./routes/produtos")(app)
+require("./routes/produto")(app)
 //require("./routes/vendas")(app)
 
 app.listen(3000, function(){
@@ -44,7 +44,8 @@ app.post('/api/cadastro_produto', function(req, res){
 })
 
 app.get('/api/lista_porduto', function(res, req){
-
+    var criacao = "Sucesso"
+    return res.send(criacao)
 })
 
 app.put('/api/atualizar_produto', function(req,res){
