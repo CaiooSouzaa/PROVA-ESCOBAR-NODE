@@ -6,20 +6,20 @@ const UserTable = new Schema(
     {
         nome: {
             type: String,
-            require: true,
+            required: true,
             unique: true
         },
         email: {
             type: String,
-            require: true
+            required: true
         },
         senha: {
             type: String,
-            require: true
+            required: true
         },
         confirmar_senha: {
             type: String,
-            require: true
+            required: true
         },
         data_criacao: {
             type: Date,
