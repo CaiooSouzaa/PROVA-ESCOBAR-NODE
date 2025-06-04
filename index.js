@@ -8,6 +8,8 @@ app.use(express.json())
 require("./routes/usuario")(app)
 require("./routes/produto")(app)
 //require("./routes/vendas")(app)
+//require("./routes/cliente")(app)
+//require("./routes/categoria")(app)
 
 app.listen(3000, function(){
     console.log('Servidor ativo')
@@ -16,46 +18,4 @@ app.listen(3000, function(){
 app.get('/', function(req, res){
     
     return res.send('Home')
-})
-
-app.post('/api/login_usuario', function(req, res){
-    var criacao = "Sucesso"
-    return res.send(criacao)
-})
-
-app.post('/api/cadastro_usuario', function(res,req){
-
-})
-
-app.get('/api/lista_usuario', function(req, res){
-
-})
-
-app.put('/api/atualizar_cadastro_cliente', function(req, res){
-    
-})
-
-app.delete('/api/deletar_usuario', function(req, res){
-
-})
-
-app.post('/api/cadastro_produto', function(req, res){
-
-})
-
-app.get('/api/lista_porduto', function(res, req){
-    var criacao = "Sucesso"
-    return res.send(criacao)
-})
-
-app.put('/api/atualizar_produto', function(req,res){
-
-})
-
-app.delete('/api/deletar_poduto', function(req, res){
-
-})
-
-app.get('/api/lista_venda', function(req, res){
-
 })
