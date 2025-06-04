@@ -4,24 +4,34 @@ const {Schema} = mongoose
 
 const ProdutoTable = new Schema(
     {
+        codigo:{
+            type: Number,
+            required: true
+        },
         nome:{
             type:String,
-            requeri: true
+            requered: true
         },
         valor:{
             type: String,
-            require: true
+            required: true
         },
         quantidade:{
             type: String,
-            require: true
+            required: true
+        },
+        categoria:{
+            type: String
         },
         disponivel:{
             type: Boolean,
-            require: true
+            required: true
+        },
+        descricao:{
+            type: String
         }
     }
 )
 
-const Produto = mongoose.model('cadastro_produto', ProdutoTable)
+const Produto = mongoose.model('produto', ProdutoTable)
 module.exports = Produto

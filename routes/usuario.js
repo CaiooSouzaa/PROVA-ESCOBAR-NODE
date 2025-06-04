@@ -5,10 +5,10 @@ const UsuarioController = require("../controller/usuarioController")
 
 route.get("/usuario", UsuarioController.listatarTodos)
 route.get("/usuario/:nome", UsuarioController.buscarPeloNome)
-route.post("/registrar", UsuarioController.registrar)
-route.post("/login", UsuarioController.login)
-route.put("/atualizar_cadastro", UsuarioController.atualizarCadastro)
-route.delete("/deletar", UsuarioController.deletar)
+route.post("/usuario/registrar", UsuarioController.registrar)
+route.post("/usuario/login", UsuarioController.login)
+route.put("/usuario/atualizar_cadastro", UsuarioController.atualizarCadastro)
+route.delete("/usuario/deletar", UsuarioController.deletar)
 
 
 /*

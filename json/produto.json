@@ -1,0 +1,29 @@
+//CADASTRO
+{
+    "codigo": "abc-123",
+    "nome": "produto1",
+    "valor": "R$200,00",
+    "quantidade": 50,
+    "categoria": "Informatica",
+    "disponivel": 1,
+    "descricao": "Teclado gamer para melhorar sua jogabilidade"
+}
+//PESQUISA
+{
+    "codigo": "abc-123"
+}
+//ATUALIZAR
+{
+    "codigo": "abc-123",
+    "nome": "produto1",
+    "valor": "R$200,00",
+    "quantidade": 50,
+    "categoria": "Informatica",
+    "disponivel": 1,
+    "descricao": "Teclado gamer para melhorar sua jogabilidade"
+}
+//DELETAR
+{
+    "_id":"<codigo_id>",
+    "codigo": "abc-123"
+}

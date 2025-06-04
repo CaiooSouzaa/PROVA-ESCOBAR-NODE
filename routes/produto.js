@@ -2,11 +2,13 @@ const express = require('express')
 
 var route = express.Router()
 
-var ProdutoDb = require("../model/produto")
+var produtoController = require("../controller/produtoController")
 
-route.get("/produto", async(req, res) =>{
-    var produto = await ProdutoDb.find()
-    return res.send(produto)
-})
+route.get("/produto", produtoController.listarTodos)
+route.get("/produto/:codigo", produtoController.buscarProduto)
+route.post("/produto/registrar", produtoController.registrarProduto)
+route.put("/produto/atualizar_produto", produtoController.atualizarProduto)
+route.delete("/produto/deletar", produtoController.deletar)
+
 
 module.exports = app => app.use("/api", route)
