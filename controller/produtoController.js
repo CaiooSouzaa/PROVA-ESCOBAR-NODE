@@ -82,7 +82,7 @@ module.exports = {
             return res.status(400).send(msg)
         }
 
-        if (!disponivel) {
+        if (disponivel === undefined || disponivel === null) {
             return res.status(400).send(msg)
         }
 

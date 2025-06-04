@@ -5,7 +5,7 @@ const {Schema} = mongoose
 const ProdutoTable = new Schema(
     {
         codigo:{
-            type: Number,
+            type: String,
             required: true
         },
         nome:{

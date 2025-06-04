@@ -16,11 +16,11 @@
 {
     "codigo": "abc-123",
     "nome": "produto1",
-    "valor": "R$200,00",
+    "valor": "R$210,00",
     "quantidade": 50,
     "categoria": "Informatica",
-    "disponivel": 1,
-    "descricao": "Teclado gamer para melhorar sua jogabilidade"
+    "disponivel": 0,
+    "descricao": "Teclado gamer para melhorar sua jogabilidade, e confortavel"
 }
 //DELETAR
 {
