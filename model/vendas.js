@@ -4,20 +4,66 @@ const {Schema} = mongoose
 
 const VendasTable = new Schema(
     {
-        nome_produto:{
-            type: String,
-            require: true
-        },
         data_venda:{
             type: Date,
             default: Date.now
         },
-        valor_venda:{
-            type: String,
-            require: true
+        numeroNotaFiscal:{
+            type: Number,
+            required: true
+        },
+        cliente:{
+            cpf:{
+                type: String,
+                required: true
+            },
+            nome:{
+                type: String,
+                required: true
+            },
+            email:{
+                type: String
+            },
+            enderecoCliente:{
+                type: String,
+                required: true
+            },
+            telefone:{
+                celular:{
+                    type:String,
+                    required: true
+                }
+            }
+        },
+
+        produto:[
+            {
+                codigo:{
+                    type: String,
+                    required: true
+                },
+                nome:{
+                    type: String,
+                },
+                categoria:{
+                    type: String,
+                },
+                quantidade:{
+                    type: String,
+                    required: true
+                },
+                preco:{
+                    type: String,
+                    required: true
+                }
+            }
+        ],
+        valor_total:{
+            type: Number,
+            required: true
         }
     }
 )
 
-const Vendas = mongoose.model('vendas_produto', VendasTable)
+const Vendas = mongoose.model('vendas', VendasTable)
 module.export(Vendas)
