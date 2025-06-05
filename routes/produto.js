@@ -10,5 +10,4 @@ route.post("/produto/registrar", produtoController.registrarProduto)
 route.put("/produto/atualizar_produto", produtoController.atualizarProduto)
 route.delete("/produto/deletar", produtoController.deletar)
 
-
 module.exports = app => app.use("/api", route)

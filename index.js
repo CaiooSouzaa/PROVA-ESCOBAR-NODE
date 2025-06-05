@@ -8,8 +8,8 @@ app.use(express.json())
 require("./routes/usuario")(app)
 require("./routes/produto")(app)
 require("./routes/vendas")(app)
-//require("./routes/cliente")(app)
-//require("./routes/categoria")(app)
+require("./routes/cliente")(app)
+require("./routes/categoria")(app)
 
 app.listen(3000, function(){
     console.log('Servidor ativo')

@@ -8,6 +8,9 @@ const CategoriaTable = new Schema(
             type: String,
             required: true
         },
+        descricao:{
+            type: String
+        },
         ativo:{
             type: Boolean
         }

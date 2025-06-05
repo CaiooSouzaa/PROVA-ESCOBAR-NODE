@@ -1,0 +1,66 @@
+//CADASTRAR
+{
+    "codigo_venda": 1001,
+    "cliente": {
+        "cpf": "123.456.789-00",
+        "nome": "João da Silva",
+        "email": "joao.silva@example.com",
+        "enderecoCliente": "Rua das Palmeiras, 123, Bairro Feliz, Cidade Alegre - UF",
+        "telefone": {
+            "celular": "(11) 98765-4321"
+        }
+    },
+    "produto": [
+        {
+            "codigo": "PROD001",
+            "nome": "Camiseta Azul Algodão",
+            "categoria": "Vestuário",
+            "quantidade": "2",
+            "preco": "79.90"
+        },
+        {
+            "codigo": "PROD002",
+            "nome": "Calça Jeans Slim",
+            "categoria": "Vestuário",
+            "quantidade": "1",
+            "preco": "149.50"
+        }
+    ],
+    "valor_total": 309.30
+}
+//ATUALIZAR
+{
+    "codigo_venda": 1001,
+    "cliente": {
+        "cpf": "123.456.789-00",
+        "nome": "João da Silva",
+        "email": "joao.silva@example.com",
+        "enderecoCliente": "Rua das Palmeiras, 123, Bairro Feliz, Cidade Alegre - UF",
+        "telefone": {
+            "celular": "(11) 98765-4321"
+        }
+    },
+    "produto": [
+        {
+            "codigo": "PROD001",
+            "nome": "Camiseta Azul Algodão",
+            "categoria": "Vestuário",
+            "quantidade": "2",
+            "preco": "79.90"
+        },
+        {
+            "codigo": "PROD002",
+            "nome": "Calça Jeans Slim",
+            "categoria": "Vestuário",
+            "quantidade": "1",
+            "preco": "149.50"
+        }
+    ],
+    "valor_total": 309.30
+}
+
+//DELETAR
+{
+    "_id":"<codigo_id>",
+    "codigo_venda": 1001
+}

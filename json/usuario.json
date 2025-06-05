@@ -1,0 +1,25 @@
+//CRIA USUARIO
+{
+    "nome":"abc",
+    "email":"abc@abc.com",
+    "senha":"abc123",
+    "confirma_senha":"abc123"
+},
+
+//BUSCAR POR NOME
+{
+    "nome":"abc"
+},
+
+//ATUALIZAR
+{
+    "nome":"abc",
+    "email":"abc@abc.com",
+    "senha":"abc123",
+    "confirma_senha":"abc123"
+}
+
+//DELETAR
+{
+    "_id":"<codigo_id>"
+}

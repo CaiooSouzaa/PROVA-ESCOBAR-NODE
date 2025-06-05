@@ -21,63 +21,69 @@ module.exports = {
 
     //CADASTRO DE VENDA VIA POST
     registrar: async (req, res) => {
-        const { codigo_venda, cliente, produto, valor_total } = req.body
-
-        var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
-
-        if (!codigo_venda) {
-            return res.status(400).send(msg)
-        }
-
-        if (!cliente) {
-            return res.status(400).send(msg)
-        }
-
-        if (!produto) {
-            return res.status(400).send(msg)
-        }
-
-        if (!valor_total) {
-            return res.status(400).send(msg)
-        }
-
         try {
-            const retornoVenda = await VendaDb.insertOne({ codigo_venda, cliente, produto, valor_total })
+            const { codigo_venda, cliente, produto, valor_total } = req.body
+
+            var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
+
+            if (!codigo_venda) {
+                return res.status(400).send(msg)
+            }
+
+            if (!cliente) {
+                return res.status(400).send(msg)
+            }
+
+            if (produto.some(produto => produto.codigo == "" || produto.codigo == undefined)) {
+                return res.send({ mensagem: "O codigo do produto não pode ser nulo." })
+            }
+            if (produto.some(produto => produto.quantidade == "" || produto.quantidade == undefined)) {
+                return res.send({ mensagem: "A quantidade do produto não pode ser nulo." })
+            }
+            if (produto.some(produto => produto.preco == "" || produto.preco == undefined)) {
+                return res.send({ mensagem: "O preco do produto não pode ser nulo." })
+            }
+
+            if (!valor_total) {
+                return res.status(400).send(msg)
+            }
+            const retornoVenda = await VendaDb.create({ codigo_venda, cliente, produto, valor_total })
             await retornoVenda.save()
             return res.send("Cadastro efetuado com sucesso✅")
         } catch (error) {
             return res.status(201).send("Erro ao cadastrar" + error.massage)
         }
+
     },
     atualizarVenda: async (req, res) => {
-        const { codigo_venda, cliente, produto, valor_total } = req.body
-
-        var msg = "Preencha todos os capos"
-
-
-        if (!codigo_venda) {
-            return res.status(400).send(msg)
-        }
-
-        if (!cliente) {
-            return res.status(400).send(msg)
-        }
-
-        if (!produto) {
-            return res.status(400).send(msg)
-        }
-
-        if (!valor_total) {
-            return res.status(400).send(msg)
-        }
-
         try {
-            const retornoAtualizaVenda = await VendaDbDb.findOneAndUpdate({ codigo_venda }, { cliente, produto, valor_total}, { new: true })
+            const { codigo_venda, cliente, produto, valor_total } = req.body
+
+            var msg = "Preencha todos os capos"
+
+
+            if (!codigo_venda) {
+                return res.status(400).send(msg)
+            }
+
+            if (!cliente) {
+                return res.status(400).send(msg)
+            }
+
+            if (!produto) {
+                return res.status(400).send(msg)
+            }
+
+            if (!valor_total) {
+                return res.status(400).send(msg)
+            }
+            const retornoAtualizaVenda = await VendaDb.findOneAndUpdate({ codigo_venda }, { cliente, produto, valor_total }, { new: true })
 
             if (retornoAtualizaVenda == null) {
                 var msg = "Algo deu errado, confirmar suas credenciais corretamente"
                 return res.send(msg)
             }
+
         } catch (error) {
             return res.send("Erro na atualização" + error.message)
         }

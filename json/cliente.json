@@ -1,26 +1,32 @@
-//CRIA USUARIO
+//CRIAR
 {
-    "nome":"abc",
-    "email":"abc@abc.com",
-    "senha":"abc123",
-    "confirma_senha":"abc123"
-},
-
-//BUSCAR POR NOME
-{
-    "nome":"abc"
-},
-
+    "nome": "Maria Oliveira Souza",
+    "cpf": "987.654.321-01",
+    "endereco": {
+        "cep": "17010-000",
+        "numero_casa": 456,
+        "bairro": "Centro",
+        "cidade": "Bauru",
+        "estado": "SP"
+    },
+    "telefone": "(14) 91234-5678",
+    "email": "maria.oliveira@example.com"
+}
 //ATUALIZAR
 {
-    "nome":"abc",
-    "email":"abc@abc.com",
-    "senha":"abc123",
-    "confirma_senha":"abc123"
+    "nome": "João Silva Costa",
+    "cpf": "123.456.789-00",
+    "endereco": {
+        "cep": "17015-000",
+        "numero_casa": 123,
+        "bairro": "Jardim América",
+        "cidade": "Bauru",
+        "estado": "SP"
+    },
+    "telefone": "(14) 99999-0000",
+    "email": "joao.costa.novo@example.com"
 }
-
 //DELETAR
 {
-    "_id":"<codigo_id>"
+    "cpf": "123.456.789-00"
 }
-
