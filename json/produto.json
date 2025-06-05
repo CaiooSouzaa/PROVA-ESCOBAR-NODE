@@ -1,4 +1,4 @@
-//CADASTRO
+//CADASTRAR
 {
     "codigo": "abc-123",
     "nome": "produto1",
@@ -8,7 +8,7 @@
     "disponivel": 1,
     "descricao": "Teclado gamer para melhorar sua jogabilidade"
 }
-//PESQUISA
+//PESQUISAR
 {
     "codigo": "abc-123"
 }
