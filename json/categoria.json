@@ -1,1 +1,92 @@
-const
+//CADASTRAR
+[
+  {
+    "nome": "Gadgets Inovadores",
+    "descricao": "Uma coleção de tecnologia de ponta e dispositivos futuristas para o dia a dia.",
+    "ativo": true
+  },
+  {
+    "nome": "Delícias Culinárias",
+    "descricao": "Receitas, ingredientes exóticos e utensílios para os amantes da boa gastronomia.",
+    "ativo": true
+  },
+  {
+    "nome": "Aventuras ao Ar Livre",
+    "descricao": "Equipamentos e guias para exploração, esportes radicais e viagens inesquecíveis.",
+    "ativo": true
+  },
+  {
+    "nome": "Mundo Pet",
+    "descricao": "Tudo para seus amigos de quatro patas: brinquedos, alimentação e acessórios.",
+    "ativo": true
+  },
+  {
+    "nome": "Arte e Design",
+    "descricao": "Inspirações, materiais e ferramentas para artistas e designers de todas as áreas.",
+    "ativo": false
+  },
+  {
+    "nome": "Saúde e Bem-Estar",
+    "descricao": "Produtos e dicas para uma vida equilibrada, incluindo fitness, nutrição e relaxamento.",
+    "ativo": true
+  },
+  {
+    "nome": "Jogos e Entretenimento",
+    "descricao": "As últimas novidades em videogames, jogos de tabuleiro e outras formas de diversão.",
+    "ativo": true
+  },
+  {
+    "nome": "Decoração para o Lar",
+    "descricao": "Itens de design e mobiliário para transformar qualquer ambiente em um espaço aconchegante.",
+    "ativo": true
+  }
+]
+
+//ATUALIZAR
+[
+  {
+    "nome": "Moda Sustentável",
+    "descricao": "Roupas e acessórios eco-friendly, produzidos com responsabilidade social e ambiental.",
+    "ativo": true
+  },
+  {
+    "nome": "Cursos Online",
+    "descricao": "Plataforma de aprendizado com aulas sobre diversas habilidades e conhecimentos.",
+    "ativo": true
+  },
+  {
+    "nome": "Ferramentas para Casa",
+    "descricao": "Equipamentos e utensílios essenciais para reparos e melhorias domésticas.",
+    "ativo": false
+  },
+  {
+    "nome": "Livros Raros",
+    "descricao": "Uma seleção exclusiva de obras literárias antigas e de colecionador.",
+    "ativo": true
+  },
+  {
+    "nome": "Beleza Natural",
+    "descricao": "Cosméticos e produtos de cuidados pessoais feitos com ingredientes orgânicos e veganos.",
+    "ativo": true
+  },
+  {
+    "nome": "Tecnologia Vestível",
+    "descricao": "Dispositivos inteligentes para usar no corpo, monitorando saúde e atividades.",
+    "ativo": true
+  },
+  {
+    "nome": "Instrumentos Musicais",
+    "descricao": "Guitarras, teclados, baterias e acessórios para músicos de todos os níveis.",
+    "ativo": true
+  },
+  {
+    "nome": "Viagens de Aventura",
+    "descricao": "Pacotes e roteiros para destinos emocionantes, com foco em ecoturismo e adrenalina.",
+    "ativo": true
+  }
+]
+
+//DELETAR
+{
+    "_id":"<codigo_id>"
+}
