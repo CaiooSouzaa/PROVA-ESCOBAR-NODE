@@ -8,7 +8,7 @@ const VendasTable = new Schema(
             type: Date,
             default: Date.now
         },
-        numeroNotaFiscal:{
+        codigo_venda:{
             type: Number,
             required: true
         },
@@ -66,4 +66,4 @@ const VendasTable = new Schema(
 )
 
 const Vendas = mongoose.model('vendas', VendasTable)
-module.export(Vendas)
+module.exports = Vendas

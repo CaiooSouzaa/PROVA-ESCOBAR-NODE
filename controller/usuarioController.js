@@ -26,27 +26,27 @@ module.exports = {
         var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
 
         if (nome === undefined || nome === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         if (email === undefined || email === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         if (senha === undefined || senha === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         if (confirmar_senha === undefined || confirmar_senha === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
         try {
             const retorno = await UsuarioDb.insertOne({ nome, email, senha })
             await retorno.save()
-            return res.send("Cadastro efetuado com sucesso✅")
+            return res.status(400).send("Cadastro efetuado com sucesso✅")
 
         } catch (error) {
-            return res.send("Erro ao cadastrar" + error.message)
+            return res.status(400).send("Erro ao cadastrar" + error.message)
         }
     },
 
@@ -84,22 +84,22 @@ module.exports = {
         var msg = "Alguns campos não estão preenchidos ou os dados não são coerentes, por favor verificar se todos os dados estão corretos e preenchidos"
 
         if (nome === undefined || nome === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         if (email === undefined || email === "") {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         if (senha !== confirmar_senha) {
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         const retorno = await UsuarioDb.findOneAndUpdate({ email }, { nome, senha }, { new: true })
 
         if (retorno === null) {
             var msg = "Algo deu errado, confirmar suas credenciais corretamente"
-            return res.send(msg)
+            return res.status(400).send(msg)
         }
 
         return res.send({ message: "Dados atualizados" })
@@ -110,13 +110,13 @@ module.exports = {
         const { _id } = req.body
 
         if (_id == undefined || _id == "") {
-            return res.send({ error: "Id do usuario não encontrada" })
+            return res.status(400).send({ error: "Id do usuario não encontrada" })
         }
 
         const retorno = await UsuarioDb.deleteOne({ _id })
 
         if (retorno == null) {
-            return res.send({ error: "Erro ao excluir" })
+            return res.status(400).send({ error: "Erro ao excluir" })
         }
 
         return res.send({ message: "usuario removido com sucesso" })
