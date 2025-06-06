@@ -1,7 +1,7 @@
 const mongoose = require("mongoose")
 
 try{
-    const url = "mongodb+srv://caio:caio123456@cluster0.hevzzbo.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+    const url = "banco"
 
     mongoose.connect(url)
 }catch(err){
