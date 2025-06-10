@@ -41,7 +41,6 @@
     "ativo": true
   }
 ]
-
 //ATUALIZAR
 [
   {
@@ -85,8 +84,7 @@
     "ativo": true
   }
 ]
-
 //DELETAR
 {
-    "_id":"<codigo_id>"
+  "_id": "<codigo_id>"
 }

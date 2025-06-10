@@ -74,7 +74,7 @@ module.exports = ({
             return res.status(400).send({ error: "Id do usuario não encontrada" })
         }
 
-        const retorno = await UsuarioDb.deleteOne({ _id })
+        const retorno = await CategoriaDb.deleteOne({ _id })
 
         if (retorno == null) {
             return res.status(400).send({ error: "Erro ao excluir" })
